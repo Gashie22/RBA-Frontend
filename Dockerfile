@@ -1,4 +1,4 @@
-FROM node:18-lts-alpine3.18 as build-step
+FROM node:18-alpine3.18 as build-step
 
 WORKDIR /usr/src/app
 
