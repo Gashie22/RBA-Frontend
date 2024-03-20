@@ -13,13 +13,13 @@ function NotesList() {
   }, []);
 
   const getNotes = async () => {
-    const response = await axios.get("http://104.248.160.37:3000/notes");
+    const response = await axios.get("http://localhost:5001/notes");
     setNotes(response.data);
   };
 
 
   const deleteNotes = async (noteId) => {
-    await axios.delete(`http://104.248.160.37:3000/notes/${noteId}`);
+    await axios.delete(`http://localhost:5001/notes/${noteId}`);
     getNotes();
   };
 

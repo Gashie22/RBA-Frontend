@@ -13,7 +13,7 @@ const initialState = {
 
 export const LoginUser = createAsyncThunk("user/LoginUser", async (user, thunkAPI) => {
     try {
-        const response = await axios.post('http://104.248.160.37:3000/login', {
+        const response = await axios.post('http://localhost:5001/login', {
             email: user.email,
             password: user.password
         });
@@ -34,11 +34,12 @@ export const LoginUser = createAsyncThunk("user/LoginUser", async (user, thunkAP
 
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
     try {
-        const response = await axios.get('http://104.248.160.37:3000/me',
+        const response = await axios.get('http://localhost:5001/me',
         {
           headers: {
             "Content-Type": "application/json",
           },
+          withCredentials: true
         });
         return response.data;
     } catch (error) {
@@ -50,7 +51,7 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
 });
 
 export const LogOut = createAsyncThunk("user/LogOut", async () => {
-    await axios.delete('http://104.248.160.37:3000/logout');
+    await axios.delete('http://localhost:5001/logout');
 });
 
 export const authSlice = createSlice({
