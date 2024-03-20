@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  rba_frontend:
+    build: '.'
+    ports:
+      - "3000:3000"
+    networks:
+      - nodejs
+    volumes:
+      - react_data:/usr/src/app
+    restart: on-failure
+    
+volumnes:
+  react_data:
+
+networks:
+  app-network:
+    driver: nodejs
