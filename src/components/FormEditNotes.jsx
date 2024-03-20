@@ -14,7 +14,7 @@ const FormEditNote = () => {
         const getProductById = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:5001/notes/${id}`
+                    `http://104.248.160.37:3000/notes/${id}`
                 );
                 setName(response.data.name);
                 setDetails(response.data.details);
@@ -31,7 +31,7 @@ const FormEditNote = () => {
     const updateNotes = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`http://localhost:5001/notes/${id}`, { 
+            await axios.patch(`http://104.248.160.37:3000/notes/${id}`, { 
                 name: name,
                 details: details,
                 status: status

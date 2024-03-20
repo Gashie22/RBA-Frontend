@@ -15,7 +15,7 @@ const FormAddNotes = () => {
   const saveNote = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/notes", {
+      await axios.post("http://104.248.160.37:3000/notes", {
         name: name,
         details: details,
         status: status,
