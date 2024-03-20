@@ -9,10 +9,10 @@ services:
     volumes:
       - react_data:/usr/src/app
     restart: on-failure
-    
-volumnes:
+
+volumes:
   react_data:
 
 networks:
-  app-network:
-    driver: nodejs
+  nodejs:
+    driver: bridge
