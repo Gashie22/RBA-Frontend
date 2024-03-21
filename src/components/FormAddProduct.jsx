@@ -19,7 +19,7 @@ const FormAddProduct = () => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/products", {
+      await axios.post("http://104.248.160.37:5001/products", {
         name: name,
         representative: representative,
         details:details,
