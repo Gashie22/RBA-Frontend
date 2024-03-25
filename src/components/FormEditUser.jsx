@@ -15,7 +15,7 @@ const FormEditUser = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://104.248.160.37:5001/users/${id}`);
+        const response = await axios.get(`http://143.244.178.37:5001/users/${id}`);
         setName(response.data.name);
         setEmail(response.data.email);
         setRole(response.data.role);
@@ -31,7 +31,7 @@ const FormEditUser = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://104.248.160.37:5001/users/${id}`, {
+      await axios.patch(`http://143.244.178.37:5001/users/${id}`, {
         name: name,
         email: email,
         password: password,
