@@ -13,12 +13,12 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    const response = await axios.get("http://143.244.178.37:5001/products");
+    const response = await axios.get("http://localhost:5001/products");
     setProducts(response.data);
   };
 
   const deleteProduct = async (productId) => {
-    await axios.delete(`http://143.244.178.37:5001/products/${productId}`);
+    await axios.delete(`http://localhost:5001/products/${productId}`);
     getProducts();
   };
 
@@ -69,7 +69,13 @@ const ProductList = () => {
           </tr>
         </thead>
         <tbody>
-          {products
+          {products.slice() // Create a copy to avoid mutating the original array
+          .sort((a, b) => { // Sort by dateModified (assuming it exists)
+            const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
+            const dateB = new Date(b.dateModified || b.date);
+            return dateB - dateA; // Descending order (latest first)
+          })
+    
             .filter((product) => {
               return search.toLowerCase() === ""
                 ? product
