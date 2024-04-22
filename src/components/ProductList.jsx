@@ -26,29 +26,31 @@ const ProductList = () => {
 
   return (
     <div>
-      <h1 className="title">Clients</h1>
-      <h2 className="subtitle">List of Clients</h2>
+      <div className="is-fixed-top has-shadow pb-6">
+        <h1 className="title">Clients</h1>
+        <h2 className="subtitle">List of Clients</h2>
 
-      <Link to="/products/add" className="button is-primary mb-2">
-        Add New
-      </Link>
-      {/* {Search butttons for products} */}
-      <div class="dropdown is-active is-pulled-right">
-        <div class="dropdown-trigger">
-          <div class="field">
-            <p class="control is-expanded has-icons-right ">
-              <input
-                class="input"
-                type="search"
-                placeholder="Search..."
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <span class="icon is-small is-right">
-                <i class="fas fa-search">
-                  <IoSearch />
-                </i>
-              </span>
-            </p>
+        <Link to="/products/add" className="button is-primary mb-2 ">
+          Add New
+        </Link>
+        {/* {Search butttons for products} */}
+        <div class="dropdown is-active is-pulled-right menu-list">
+          <div class="dropdown-trigger">
+            <div class="field">
+              <p class="control is-expanded has-icons-right ">
+                <input
+                  class="input"
+                  type="search"
+                  placeholder="Search..."
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <span class="icon is-small is-right">
+                  <i class="fas fa-search">
+                    <IoSearch />
+                  </i>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -69,13 +71,15 @@ const ProductList = () => {
           </tr>
         </thead>
         <tbody>
-          {products.slice() // Create a copy to avoid mutating the original array
-          .sort((a, b) => { // Sort by dateModified (assuming it exists)
-            const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
-            const dateB = new Date(b.dateModified || b.date);
-            return dateB - dateA; // Descending order (latest first)
-          })
-    
+          {products
+            .slice() // Create a copy to avoid mutating the original array
+            .sort((a, b) => {
+              // Sort by dateModified (assuming it exists)
+              const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
+              const dateB = new Date(b.dateModified || b.date);
+              return dateB - dateA; // Descending order (latest first)
+            })
+
             .filter((product) => {
               return search.toLowerCase() === ""
                 ? product

@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { IoSearch } from "react-icons/io5";
+
 
 function NotesList() {
   const [notes, setNotes] = useState([]);
@@ -22,14 +24,35 @@ function NotesList() {
     await axios.delete(`http://143.244.178.37:5001/notes/${noteId}`);
     getNotes();
   };
+  const [search, setSearch] = useState("");
 
   return (
     <div>
       {console.log(notes)}
-      <h2 className='title'>MY PROGRESS</h2>
+      <h2 className='title'>My Progress</h2>
       <Link to="/addnotes" className="button is-primary mb-2">
         Add New
       </Link>
+        {/* {Search butttons for products} */}
+        <div class="dropdown is-active is-pulled-right menu-list">
+        <div class="dropdown-trigger">
+          <div class="field">
+            <p class="control is-expanded has-icons-right ">
+              <input
+                class="input"
+                type="search"
+                placeholder="Search..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <span class="icon is-small is-right">
+                <i class="fas fa-search">
+                  <IoSearch />
+                </i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
       <table className="table is-striped is-fullwidth">
         <thead>
           <tr>
@@ -43,7 +66,21 @@ function NotesList() {
           </tr>
         </thead>
         <tbody>
-          {notes.map((product, index) => (
+          {notes.slice() // Create a copy to avoid mutating the original array
+            .sort((a, b) => {
+              // Sort by dateModified (assuming it exists)
+              const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
+              const dateB = new Date(b.dateModified || b.date);
+              return dateB - dateA; // Descending order (latest first)
+            })
+
+            .filter((product) => {
+              return search.toLowerCase() === ""
+                ? product
+                : product.name.toLowerCase().includes(search) ||
+                    product.user.name.toLowerCase().includes(search);
+            })
+          .map((product, index) => (
             <tr key={product.uuid}>
               <td>{index + 1}</td>
               <td>{product.name}</td>
