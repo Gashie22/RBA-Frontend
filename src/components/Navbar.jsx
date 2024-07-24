@@ -4,8 +4,6 @@ import logo from "../logo.png";
 import elmala from "../elmala.png"
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
-import Sidebar from "./Sidebar";
-
 
 const Navbar = () => {
   const dispatch = useDispatch();

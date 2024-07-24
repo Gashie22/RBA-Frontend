@@ -11,7 +11,7 @@ const FormAddUser = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const saveUser = async (e) => {
+  const saveUser = async (e) => { 
     e.preventDefault();
     try {
       await axios.post("http://143.244.178.37:5001/users", {

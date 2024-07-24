@@ -38,7 +38,7 @@ function Reactdatepicker()
                   to={`/schedule`}
                   
                 >
-                  <button className="">Create Schedule</button>
+                  <button className="btn btn-success">Create Schedule</button>
                 </Link>           
             </div>
             </div>
