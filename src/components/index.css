@@ -19,3 +19,11 @@
     z-index: 1;          /* Ensure header stays on top of content */
   }
   
+.btn{
+        cursor: pointer;   
+}
+.flexx{
+    display: flex;
+    justify-content: space-around;
+    overflow: visible;
+}
