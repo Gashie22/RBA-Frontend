@@ -168,6 +168,7 @@ const ProductList = () => {
             <th>Channel</th>
             <th>Cell Number</th>
             <th>Status</th>
+            
             <th>Date</th>
             {user && user.role === "admin" && <th>Created By</th>}
             <th>Actions</th>
