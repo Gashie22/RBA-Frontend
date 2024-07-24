@@ -23,6 +23,33 @@ const ProductList = () => {
   };
 
   const [search, setSearch] = useState("");
+  const [block, setBlock] = useState("LAMECK");
+  const blockNames = [
+    {
+      name: "NOMATTER",
+      color: "card has-background-success",
+      grid: "flexx",
+      style_1: "column is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
+    {
+      name: "SHARLEEN",
+      color: "card has-background-danger",
+      grid: "flexx",
+      style_1: "column is-one-third",
+      style_2: "card-content",
+      style_3: "column ",
+    },
+    {
+      name: "ARMSTRONG",
+      color: "card has-background-warning",
+      grid: "flexx",
+      style_1: "column is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
+  ];
 
   return (
     <div>
@@ -32,26 +59,104 @@ const ProductList = () => {
       <Link to="/products/add" className="button is-primary mb-2">
         Add New
       </Link>
+
       {/* {Search butttons for products} */}
-      <div class="dropdown is-active is-pulled-right">
-        <div class="dropdown-trigger">
-          <div class="field">
-            <p class="control is-expanded has-icons-right ">
-              <input
-                class="input"
-                type="search"
-                placeholder="Search..."
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <span class="icon is-small is-right">
-                <i class="fas fa-search">
-                  <IoSearch />
-                </i>
-              </span>
-            </p>
+      {user && user.role === "user" && (
+        <div class="dropdown is-active is-pulled-right">
+          <div class="dropdown-trigger">
+            <div class="field">
+              <p class="control is-expanded has-icons-right ">
+                <input
+                  class="input"
+                  type="search"
+                  placeholder="Search..."
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <span class="icon is-small is-right">
+                  <i class="fas fa-search">
+                    <IoSearch />
+                  </i>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* {Custom block1} */}
+      {/* <div class="columns is-centered">
+        <div class="column is-one-third">
+          <div class="card has-background-success">
+            <div class="card-content">
+              <div
+                onClick={() => console.log("Masimba clicked")}
+                class="columns btn"
+              >
+                <div class="column is-half">
+                  <h5 class="has-text-weight-bold">Masimba</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-one-third">
+          <div class="card has-background-danger">
+            <div class="card-content">
+              <div
+                onClick={() => console.log("Tambu clicked")}
+                class="columns btn"
+              >
+                <div class="column is-half">
+                  <h5 class="has-text-weight-bold">Tambu</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-one-third">
+          <div class="card has-background-warning">
+            <div class="card-content">
+              <div
+                onClick={() => console.log("Maud clicked")}
+                class="columns btn"
+              >
+                <div class="column is-half">
+                  <h5 class="has-text-weight-bold">Maud</h5>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      {user && user.role === "admin" && (
+        <div class="flexx is-one-third card-content">
+          {blockNames.map((category) => (
+            <div
+              class=""
+              key={category.name}
+              // {console.log(category.name)}
+              className={`btn  ${block === category.name && "category-active"}`}
+              onClick={() => setBlock(category.name)}
+            >
+              <div class={category.color}>
+                <div class={category}>
+                  <div class={category.color}>
+                    <div class={category.style_2}>
+                      <div class="columns">
+                        <div class={category.style_3}>
+                          <h5 class="has-text-weight-bold ">{category.name}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       <table className="table is-striped is-fullwidth">
         <thead>
@@ -66,51 +171,111 @@ const ProductList = () => {
             <th>Date</th>
             {user && user.role === "admin" && <th>Created By</th>}
             <th>Actions</th>
-          </tr>
+          </tr> 
         </thead>
-        <tbody>
-          {products.slice() // Create a copy to avoid mutating the original array
-          .sort((a, b) => { // Sort by dateModified (assuming it exists)
-            const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
-            const dateB = new Date(b.dateModified || b.date);
-            return dateB - dateA; // Descending order (latest first)
-          })
-    
-            .filter((product) => {
-              return search.toLowerCase() === ""
-                ? product
-                : product.name.toLowerCase().includes(search) ||
-                    product.user.name.toLowerCase().includes(search);
-            })
-            .map((product, index) => (
-              <tr key={product.uuid}>
-                <td>{index + 1}</td>
-                <td>{product.name}</td>
-                <td>{product.representative}</td>
-                <td>{product.details}</td>
-                <td>{product.isCall}</td>
-                <td>{product.telephone}</td>
-                <td>{product.status}</td>
-                <td>{product.date}</td>
-                {user && user.role === "admin" && <td>{product.user.name}</td>}
-                <td>
-                  <Link
-                    to={`/products/edit/${product.uuid}`}
-                    className="button is-small is-info"
-                  >
-                    Edit
-                  </Link>
+        <tbody> 
+          {user &&
+            user.role === "admin" &&
+            products
+              // .slice() // Create a copy to avoid mutating the original array
+              .sort((a, b) => {
+                // Sort by dateModified (assuming it exists)
+                const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
+                const dateB = new Date(b.dateModified || b.date);
+                return dateB - dateA; // Descending order (latest first)
+              })
+
+              // .filter((product) => {
+              //   return search.toLowerCase() === ""
+              //     ? product
+              //     : product.name.toLowerCase().includes(search) ||
+              //         product.user.name.toLowerCase().includes(search);
+              // })
+
+              .filter((i) => i.user.name === block)
+
+              .map((product, index) => (
+                <tr key={product.uuid}>
+                  <td>{index + 1}</td>
+                  <td>{product.name}</td>
+                  <td>{product.representative}</td>
+                  <td>{product.details}</td>
+                  <td>{product.isCall}</td>
+                  <td>{product.telephone}</td>
+                  <td>{product.status}</td>
+                  <td>{product.date}</td>
                   {user && user.role === "admin" && (
-                    <button
-                      onClick={() => deleteProduct(product.uuid)}
-                      className="button is-small is-danger"
-                    >
-                      Delete
-                    </button>
+                    <td>{product.user.name}</td>
                   )}
-                </td>
-              </tr>
-            ))}
+                  <td>
+                    <Link
+                      to={`/products/edit/${product.uuid}`}
+                      className="button is-small is-info"
+                    >
+                      Edit
+                    </Link>
+                    {user && user.role === "admin" && (
+                      <button
+                        onClick={() => deleteProduct(product.uuid)}
+                        className="button is-small is-danger"
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+              {user &&
+            user.role === "user" &&
+            products
+              // .slice() // Create a copy to avoid mutating the original array
+              .sort((a, b) => {
+                // Sort by dateModified (assuming it exists)
+                const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
+                const dateB = new Date(b.dateModified || b.date);
+                return dateB - dateA; // Descending order (latest first)
+              })
+
+              .filter((product) => {
+                return search.toLowerCase() === ""
+                  ? product
+                  : product.name.toLowerCase().includes(search) ||
+                      product.user.name.toLowerCase().includes(search);
+              })
+
+              // .filter((i) => i.user.name === block)
+
+              .map((product, index) => (
+                <tr key={product.uuid}>
+                  <td>{index + 1}</td>
+                  <td>{product.name}</td>
+                  <td>{product.representative}</td>
+                  <td>{product.details}</td>
+                  <td>{product.isCall}</td>
+                  <td>{product.telephone}</td>
+                  <td>{product.status}</td>
+                  <td>{product.date}</td>
+                  {user && user.role === "admin" && (
+                    <td>{product.user.name}</td>
+                  )}
+                  <td>
+                    <Link
+                      to={`/products/edit/${product.uuid}`}
+                      className="button is-small is-info"
+                    >
+                      Edit
+                    </Link>
+                    {user && user.role === "admin" && (
+                      <button
+                        onClick={() => deleteProduct(product.uuid)}
+                        className="button is-small is-danger"
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
         </tbody>
       </table>
     </div>
