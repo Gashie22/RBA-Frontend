@@ -34,7 +34,7 @@ const Welcome = () => {
 
         </div>
         <div className="field mt-5 pb-8">
-          <a href="/products">
+          <a href="/clients">
             <button
               type="submit"
               className="button is-success is-fullwidth"

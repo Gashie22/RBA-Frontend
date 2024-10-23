@@ -20,7 +20,7 @@ const FormAddNotes = () => {
         details: details,
         status: status,
         date: date
-
+ 
       });
       navigate("/notes");
 
@@ -84,10 +84,10 @@ const FormAddNotes = () => {
                   <input
                     type="text"
                     className="input"
-                    value={date}
+                    value={date} 
                     onChange={(e) => setDate(e.target.value)}
                     placeholder="YYYY-MM-DD"
-                  />
+                  />  
                 </div>
               </div>
 

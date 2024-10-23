@@ -21,42 +21,73 @@ const ProductList = () => {
     await axios.delete(`http://143.244.178.37:5001/products/${productId}`);
     getProducts();
   };
+  //pagination
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage, setPostsPerPage] = useState(10);
+  // const [adminPosts, setAdminPosts] = useState(15);
 
+  //searchfilter
   const [search, setSearch] = useState("");
-  const [block, setBlock] = useState("LAMECK");
+  const [block, setBlock] = useState("");
   const blockNames = [
     {
       name: "NOMATTER",
       color: "card has-background-success",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "clumn is-one-third",
       style_2: "card-content",
-      style_3: "column is-half",
+      style_3: "colun is-half",
     },
     {
       name: "SHARLEEN",
       color: "card has-background-danger",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "coumn is-one-third",
       style_2: "card-content",
-      style_3: "column ",
+      style_3: "colun ",
     },
     {
       name: "ARMSTRONG",
       color: "card has-background-warning",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "coumn is-one-third",
       style_2: "card-content",
-      style_3: "column is-half",
+      style_3: "colun is-half",
+    },
+    {
+      name: " KUNDAI",
+      color: "card has-background-info",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "colun is-half",
+    },
+    {
+      name: "TAWONA",
+      color: "card has-background-link",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "colun is-half",
     },
   ];
 
+  //pagination logic
+  // const lastIndex = currentPage * postsPerPage;
+  // const firstIndex = lastIndex - postsPerPage;
+  // const currentPosts = products.slice(firstIndex, lastIndex);
+
+  //paginate function
+  // const paginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // };
+
   return (
-    <div>
-      <h1 className="title">Clients</h1>
+    <div className="p-6 my-6">
+      <h1 className="title ">Clients</h1>
       <h2 className="subtitle">List of Clients</h2>
 
-      <Link to="/products/add" className="button is-primary mb-2">
+      <Link to="/clients/add" className="button is-primary mb-2">
         Add New
       </Link>
 
@@ -144,7 +175,7 @@ const ProductList = () => {
                 <div class={category}>
                   <div class={category.color}>
                     <div class={category.style_2}>
-                      <div class="columns">
+                      <div class="colms">
                         <div class={category.style_3}>
                           <h5 class="has-text-weight-bold ">{category.name}</h5>
                         </div>
@@ -168,17 +199,16 @@ const ProductList = () => {
             <th>Channel</th>
             <th>Cell Number</th>
             <th>Status</th>
+
             <th>Date</th>
             {user && user.role === "admin" && <th>Created By</th>}
             <th>Actions</th>
-          </tr> 
+          </tr>
         </thead>
-        <tbody> 
+        <tbody>
           {user &&
             user.role === "admin" &&
-            products
-              // .slice() // Create a copy to avoid mutating the original array
-              .sort((a, b) => {
+            products.sort((a, b) => {
                 // Sort by dateModified (assuming it exists)
                 const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
                 const dateB = new Date(b.dateModified || b.date);
@@ -209,7 +239,7 @@ const ProductList = () => {
                   )}
                   <td>
                     <Link
-                      to={`/products/edit/${product.uuid}`}
+                      to={`/clients/edit/${product.uuid}`}
                       className="button is-small is-info"
                     >
                       Edit
@@ -225,7 +255,7 @@ const ProductList = () => {
                   </td>
                 </tr>
               ))}
-              {user &&
+          {user &&
             user.role === "user" &&
             products
               // .slice() // Create a copy to avoid mutating the original array
@@ -235,7 +265,6 @@ const ProductList = () => {
                 const dateB = new Date(b.dateModified || b.date);
                 return dateB - dateA; // Descending order (latest first)
               })
-
               .filter((product) => {
                 return search.toLowerCase() === ""
                   ? product
@@ -260,7 +289,7 @@ const ProductList = () => {
                   )}
                   <td>
                     <Link
-                      to={`/products/edit/${product.uuid}`}
+                      to={`/clients/edit/${product.uuid}`}
                       className="button is-small is-info"
                     >
                       Edit
@@ -278,6 +307,13 @@ const ProductList = () => {
               ))}
         </tbody>
       </table>
+      {/* {user && user.role === "user" && (
+        <Pagination
+          PostsPerPage={postsPerPage}
+          totalPosts={products.length}
+          paginate={paginate}
+        />
+      )} */}
     </div>
   );
 };

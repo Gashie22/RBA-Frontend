@@ -26,33 +26,49 @@ function NotesList() {
   const [block, setBlock] = useState("LAMECK");
   const blockNames = [
     {
-      name: "NOMATTER",
+      name: "RUTENDO",
       color: "card has-background-success",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "clumn is-one-third",
       style_2: "card-content",
-      style_3: "column is-half",
+      style_3: "colun is-half",
     },
     {
       name: "SHARLEEN",
       color: "card has-background-danger",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "coumn is-one-third",
       style_2: "card-content",
-      style_3: "column ",
+      style_3: "colun ",
     },
     {
       name: "ARMSTRONG",
       color: "card has-background-warning",
       grid: "flexx",
-      style_1: "column is-one-third",
+      style_1: "coumn is-one-third",
       style_2: "card-content",
-      style_3: "column is-half",
+      style_3: "colun is-half",
+    },
+    {
+      name: " KUNDAI",
+      color: "card has-background-info",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "colun is-half",
+    },
+    {
+      name: "TAWONA",
+      color: "card has-background-link",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "colun is-half",
     },
   ];
 
   return (
-    <div>
+    <div className="p-6 my-6">
       <h2 className="title">My Progress</h2>
       <Link to="/addnotes" className="button is-primary mb-2">
         Add New
@@ -77,7 +93,7 @@ function NotesList() {
               </p>
             </div>
           </div>
-        </div>
+        </div> 
       )}
       {user && user.role === "admin" && (
         <div class="flexx is-one-third card-content">
