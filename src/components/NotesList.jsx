@@ -50,7 +50,7 @@ function NotesList() {
       style_3: "colun is-half",
     },
     {
-      name: " KUNDAI",
+      name: "KUNDAI",
       color: "card has-background-info",
       grid: "flexx",
       style_1: "coumn is-one-third",
