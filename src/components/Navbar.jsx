@@ -52,8 +52,13 @@ const Navbar = () => {
             <span aria-hidden="true"></span>
           </a>
         </div>
+<<<<<<< HEAD
         <div className=" menu is-flex is-justify-content-space-between p-10">
           <ul className="is-flex menu-list is-justify-content-space-between p-6 pl-9 is-align-content-space-evenly is-align-items-stretch is-flex-grow-3">
+=======
+        <div className="is-flex is-justify-content-space-between p-10">
+          <ul className="is-flex is-justify-content-space-between p-6 pl-9 is-align-content-space-evenly is-align-items-stretch is-flex-grow-3">
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
             <li className="px-6">
               <NavLink to={"/dashboard"}>
                 <IoHome /> Dashboard

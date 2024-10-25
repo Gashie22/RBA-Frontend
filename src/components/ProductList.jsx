@@ -55,7 +55,11 @@ const ProductList = () => {
       style_3: "colun is-half",
     },
     {
+<<<<<<< HEAD
       name: " KUNDAI",
+=======
+      name: "KUNDAI",
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
       color: "card has-background-info",
       grid: "flexx",
       style_1: "coumn is-one-third",
@@ -200,7 +204,11 @@ const ProductList = () => {
             <th>Cell Number</th>
             <th>Status</th>
 
+<<<<<<< HEAD
             <th>Date </th>
+=======
+            <th>Date</th>
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
             {user && user.role === "admin" && <th>Created By</th>}
             <th>Actions</th>
           </tr>
@@ -264,7 +272,11 @@ const ProductList = () => {
                 const dateA = new Date(a.dateModified || a.date); // Handle potential missing dateModified
                 const dateB = new Date(b.dateModified || b.date);
                 return dateB - dateA; // Descending order (latest first)
+<<<<<<< HEAD
               }) 
+=======
+              })
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
               .filter((product) => {
                 return search.toLowerCase() === ""
                   ? product

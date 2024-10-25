@@ -35,7 +35,11 @@ const FormEditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       await axios.patch(`http://localhost:5001/products/${id}`, { 
+=======
+      await axios.patch(`http://143.244.178.37:5001/products/${id}`, { 
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
         name: name,
         representative: representative,
         details: details,

@@ -50,7 +50,11 @@ function NotesList() {
       style_3: "colun is-half",
     },
     {
+<<<<<<< HEAD
       name: " KUNDAI",
+=======
+      name: "KUNDAI",
+>>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
       color: "card has-background-info",
       grid: "flexx",
       style_1: "coumn is-one-third",
