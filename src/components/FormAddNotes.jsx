@@ -15,12 +15,12 @@ const FormAddNotes = () => {
   const saveNote = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://143.244.178.37:5001/notes", {
+      await axios.post("http://localhost:5001/notes", {
         name: name,
         details: details,
         status: status,
         date: date
-
+ 
       });
       navigate("/notes");
 
@@ -84,10 +84,10 @@ const FormAddNotes = () => {
                   <input
                     type="text"
                     className="input"
-                    value={date}
+                    value={date} 
                     onChange={(e) => setDate(e.target.value)}
                     placeholder="YYYY-MM-DD"
-                  />
+                  />  
                 </div>
               </div>
 

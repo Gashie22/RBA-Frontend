@@ -16,7 +16,7 @@ const FormEditProduct = () => {
     const getProductById = async () => {
       try {
         const response = await axios.get(
-          `http://143.244.178.37:5001/products/${id}`
+          `http://localhost:5001/products/${id}`
         );
         setName(response.data.name);
         setRep(response.data.representative);
@@ -35,14 +35,14 @@ const FormEditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://143.244.178.37:5001/products/${id}`, { 
+      await axios.patch(`http://localhost:5001/products/${id}`, { 
         name: name,
         representative: representative,
         details: details,
         telephone: telephone,
         status: status
       });
-      navigate("/products");
+      navigate("/clients");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

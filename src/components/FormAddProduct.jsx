@@ -19,17 +19,17 @@ const FormAddProduct = () => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://143.244.178.37:5001/products", {
+      await axios.post("http://localhost:5001/products", {
         name: name,
         representative: representative,
         details:details,
         isCall:isCall,
         telephone:telephone,
         status:status,
-        date:date
+        date:date 
 
       });
-      navigate("/products");
+      navigate("/clients");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -39,7 +39,7 @@ const FormAddProduct = () => {
 
   return (
     <div>
-      <h1 className="title">Clients</h1>
+      <h1 className="title">Clients</h1>  
       <h2 className="subtitle">Add New Client</h2>
       <div className="card is-shadowless">
         <div className="card-content">
@@ -109,7 +109,7 @@ const FormAddProduct = () => {
                     placeholder="Company Cell"
                   />
                 </div>
-              </div>
+              </div> 
 
               <div className="field">
                 <label className="label">Status</label>
@@ -136,7 +136,7 @@ const FormAddProduct = () => {
                     className="input"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    placeholder="Date"
+                    placeholder="YYYY-MM-DD"
                   />
                 </div>
               </div>
