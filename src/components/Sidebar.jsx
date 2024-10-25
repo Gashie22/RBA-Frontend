@@ -28,7 +28,7 @@ const Sidebar = () => {
   }
   return (
     <div>
-      <aside className="menu sidebar is-fixed-bottom pl-2 has-shadow">
+      <aside className="menu pl-2 has-shadow">
         <p className="menu-label">General</p>
         <ul className="menu-list">
           <li>

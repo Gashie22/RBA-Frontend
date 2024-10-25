@@ -14,65 +14,45 @@ function NotesList() {
   }, []);
 
   const getNotes = async () => {
-    const response = await axios.get("http://localhost:5001/notes");
+    const response = await axios.get("http://143.244.178.37:5001/notes");
     setNotes(response.data);
   };
 
   const deleteNotes = async (noteId) => {
-    await axios.delete(`http://localhost:5001/notes/${noteId}`);
+    await axios.delete(`http://143.244.178.37:5001/notes/${noteId}`);
     getNotes();
   };
   const [search, setSearch] = useState("");
   const [block, setBlock] = useState("LAMECK");
   const blockNames = [
     {
-      name: "RUTENDO",
+      name: "NOMATTER",
       color: "card has-background-success",
       grid: "flexx",
-      style_1: "clumn is-one-third",
+      style_1: "column is-one-third",
       style_2: "card-content",
-      style_3: "colun is-half",
+      style_3: "column is-half",
     },
     {
       name: "SHARLEEN",
       color: "card has-background-danger",
       grid: "flexx",
-      style_1: "coumn is-one-third",
+      style_1: "column is-one-third",
       style_2: "card-content",
-      style_3: "colun ",
+      style_3: "column ",
     },
     {
       name: "ARMSTRONG",
       color: "card has-background-warning",
       grid: "flexx",
-      style_1: "coumn is-one-third",
+      style_1: "column is-one-third",
       style_2: "card-content",
-      style_3: "colun is-half",
-    },
-    {
-<<<<<<< HEAD
-      name: " KUNDAI",
-=======
-      name: "KUNDAI",
->>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
-      color: "card has-background-info",
-      grid: "flexx",
-      style_1: "coumn is-one-third",
-      style_2: "card-content",
-      style_3: "colun is-half",
-    },
-    {
-      name: "TAWONA",
-      color: "card has-background-link",
-      grid: "flexx",
-      style_1: "coumn is-one-third",
-      style_2: "card-content",
-      style_3: "colun is-half",
+      style_3: "column is-half",
     },
   ];
 
   return (
-    <div className="p-6 my-6">
+    <div>
       <h2 className="title">My Progress</h2>
       <Link to="/addnotes" className="button is-primary mb-2">
         Add New
@@ -97,7 +77,7 @@ function NotesList() {
               </p>
             </div>
           </div>
-        </div> 
+        </div>
       )}
       {user && user.role === "admin" && (
         <div class="flexx is-one-third card-content">
@@ -198,7 +178,7 @@ function NotesList() {
                 return dateB - dateA; // Descending order (latest first)
               })
 
-              .filter((product) => { 
+              .filter((product) => {
                 return search.toLowerCase() === ""
                   ? product
                   : product.name.toLowerCase().includes(search) ||

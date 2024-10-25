@@ -1,6 +1,24 @@
 .hero{
     background: url(../elmala.png) center / cover;
 }
+
+.client-table-container {
+    position: relative; /* Enable positioning of header */
+    overflow-y: auto;  /* Allow vertical scrolling in container */
+    height: 500px;   /* Adjust height as needed */
+  }
+  
+  .client-table-header {
+    position: fixed; /* Make header stick to top on scroll */
+    top: 0;
+    padding-left: 12px;             /* Position header at the top */
+    left: 0;            /* Position header at the left */
+    width: 100%;       /* Width of container */
+    height: 50px;       /* Height of header */
+    background-color: rgba(114, 101, 101, 0.5); /* Make header semi-transparent */
+    z-index: 1;          /* Ensure header stays on top of content */
+  }
+  
 .btn{
         cursor: pointer;   
 }

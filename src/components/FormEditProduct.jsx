@@ -8,6 +8,7 @@ const FormEditProduct = () => {
   const [details, setDetails] = useState("");
   const [telephone, setTel] = useState("");
   const [status, setStatus] = useState("");
+  const [date, setDate] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -16,13 +17,14 @@ const FormEditProduct = () => {
     const getProductById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5001/products/${id}`
+          `http://143.244.178.37:5001/products/${id}`
         );
         setName(response.data.name);
         setRep(response.data.representative);
         setDetails(response.data.details);
         setTel(response.data.telephone);
-        setStatus(response.data.status)
+        setStatus(response.data.status);
+        setDate(response.data.date);
       } catch (error) {
         if (error.response) {
           setMsg(error.response.data.msg);
@@ -35,18 +37,15 @@ const FormEditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      await axios.patch(`http://localhost:5001/products/${id}`, { 
-=======
-      await axios.patch(`http://143.244.178.37:5001/products/${id}`, { 
->>>>>>> 8bf7ed0576eaf4d17a1fed7a853beec0a64fe08c
+      await axios.patch(`http://143.244.178.37:5001/products/${id}`, {
         name: name,
         representative: representative,
         details: details,
         telephone: telephone,
-        status: status
+        status: status,
+        date:date
       });
-      navigate("/clients");
+      navigate("/products");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -90,7 +89,7 @@ const FormEditProduct = () => {
               <div className="field">
                 <label className="label">Address</label>
                 <div className="control">
-                  <input 
+                  <input
                     type="text"
                     className="input"
                     value={details}
@@ -129,7 +128,18 @@ const FormEditProduct = () => {
                   </div>
                 </div>
               </div>
-
+              <div className="field">
+                <label className="label">Date Created</label>
+                <div className="control">
+                  <input
+                    type="text"
+                    className="input"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    placeholder="Date Created"
+                  />
+                </div>
+              </div>
 
               <div className="field">
                 <div className="control">
