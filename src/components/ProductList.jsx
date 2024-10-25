@@ -56,7 +56,7 @@ const ProductList = () => {
       <h1 className="title">Clients</h1>
       <h2 className="subtitle">List of Clients</h2>
 
-      <Link to="/products/add" className="button is-primary mb-2">
+      <Link to="/clients/add" className="button is-primary mb-2">
         Add New
       </Link>
 
@@ -209,7 +209,7 @@ const ProductList = () => {
                   )}
                   <td>
                     <Link
-                      to={`/products/edit/${product.uuid}`}
+                      to={`/clients/edit/${product.uuid}`}
                       className="button is-small is-info"
                     >
                       Edit
@@ -260,7 +260,7 @@ const ProductList = () => {
                   )}
                   <td>
                     <Link
-                      to={`/products/edit/${product.uuid}`}
+                      to={`/clients/edit/${product.uuid}`}
                       className="button is-small is-info"
                     >
                       Edit
