@@ -26,7 +26,7 @@ function NotesList() {
   const [block, setBlock] = useState("LAMECK");
   const blockNames = [
     {
-      name: "NOMATTER",
+      name: "RUTENDO",
       color: "card has-background-success",
       grid: "flexx",
       style_1: "column is-one-third",
