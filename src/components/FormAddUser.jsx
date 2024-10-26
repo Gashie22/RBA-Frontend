@@ -14,7 +14,7 @@ const FormAddUser = () => {
   const saveUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/users", {
+      await axios.post("http://143.244.178.37:5001/users", {
         name: name,
         email: email,
         password: password,
