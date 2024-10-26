@@ -52,7 +52,7 @@ const Navbar = () => {
             <span aria-hidden="true"></span>
           </a>
         </div>
-        <div className="is-flex is-justify-content-space-between p-10">
+        <div className=" menu is-flex is-justify-content-space-between p-10">
           <ul className="is-flex menu-list  is-justify-content-space-between p-6 pl-9 is-align-content-space-evenly is-align-items-stretch is-flex-grow-3">
             <li className="px-6">
               <NavLink to={"/dashboard"}>
@@ -73,8 +73,8 @@ const Navbar = () => {
           </ul>
           {user && user.role === "admin" && (
             <div>
-              <ul className=" p-6 pl-9">
-                <li>
+              <ul className="menu-list p-6 pl-9">
+                <li className="menu">
                   <NavLink to={"/users"}>
                     <IoPerson /> Users
                   </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
               </ul>
             </div>
           )}
-          <div className="p-6 pl-9">
+          <div className="p-6  menu-list pl-9">
             <Reactdatepicker className="p-6 pl-9" />
           </div>
         </div>

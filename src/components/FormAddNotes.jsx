@@ -15,7 +15,7 @@ const FormAddNotes = () => {
   const saveNote = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://143.244.178.37:5001/notes", {
+      await axios.post("http://localhost:5001/notes", {
         name: name,
         details: details,
         status: status,
@@ -32,7 +32,7 @@ const FormAddNotes = () => {
   };
 
   return (
-    <div>
+    <div className="p-6">
       <h1 className="title">Notes</h1>
       <h2 className="subtitle">Add New Note</h2>
       <div className="card is-shadowless">

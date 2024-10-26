@@ -13,12 +13,12 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    const response = await axios.get("http://143.244.178.37:5001/products");
+    const response = await axios.get("http://localhost:5001/products");
     setProducts(response.data);
   };
 
   const deleteProduct = async (productId) => {
-    await axios.delete(`http://143.244.178.37:5001/products/${productId}`);
+    await axios.delete(`http://localhost:5001/products/${productId}`);
     getProducts();
   };
 
@@ -49,11 +49,27 @@ const ProductList = () => {
       style_2: "card-content",
       style_3: "column is-half",
     },
-  ];
+    
+    {name: "KUNDAI",
+    color: "card has-background-info",
+    grid: "flexx",
+    style_1: "coumn is-one-third",
+    style_2: "card-content",
+    style_3: "column is-half",
+  },
+  {
+    name: "TAWONA",
+    color: "card has-background-link",
+    grid: "flexx",
+    style_1: "coumn is-one-third",
+    style_2: "card-content",
+    style_3: "column is-half",
+  },
+  ]; 
 
   return (
-    <div>
-      <h1 className="title">Clients</h1>
+    <div className="p-6 py-3">
+      <h1 className="title py-3">Clients</h1>
       <h2 className="subtitle">List of Clients</h2>
 
       <Link to="/clients/add" className="button is-primary mb-2">

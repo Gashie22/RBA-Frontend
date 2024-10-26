@@ -19,7 +19,7 @@ const FormAddProduct = () => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://143.244.178.37:5001/products", {
+      await axios.post("http://localhost:5001/products", {
         name: name,
         representative: representative,
         details:details,
@@ -29,7 +29,7 @@ const FormAddProduct = () => {
         date:date
 
       });
-      navigate("/products");
+      navigate("/clients");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

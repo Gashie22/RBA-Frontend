@@ -16,7 +16,7 @@ const Welcome = () => {
         <div class="columns is-variable is-6 notification is-primary ">
           <div class="column center left">
 
-            <h1 class="title   is-marginless    ">ELMALA DATABASE</h1>
+            <h1 class="title   is-marginless    ">ELMALA SALES SYSTEM</h1>
 
 
           </div>
@@ -34,7 +34,7 @@ const Welcome = () => {
 
         </div>
         <div className="field mt-5 pb-8">
-          <a href="/products">
+          <a href="/clients">
             <button
               type="submit"
               className="button is-success is-fullwidth"

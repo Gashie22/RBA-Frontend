@@ -14,12 +14,12 @@ function NotesList() {
   }, []);
 
   const getNotes = async () => {
-    const response = await axios.get("http://143.244.178.37:5001/notes");
+    const response = await axios.get("http://localhost:5001/notes");
     setNotes(response.data);
   };
 
   const deleteNotes = async (noteId) => {
-    await axios.delete(`http://143.244.178.37:5001/notes/${noteId}`);
+    await axios.delete(`http://localhost:5001/notes/${noteId}`);
     getNotes();
   };
   const [search, setSearch] = useState("");
@@ -49,10 +49,27 @@ function NotesList() {
       style_2: "card-content",
       style_3: "column is-half",
     },
+
+    {
+      name: "KUNDAI",
+      color: "card has-background-info",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
+    {
+      name: "TAWONA",
+      color: "card has-background-link",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
   ];
 
   return (
-    <div>
+    <div className="p-6 py-3">
       <h2 className="title">My Progress</h2>
       <Link to="/addnotes" className="button is-primary mb-2">
         Add New

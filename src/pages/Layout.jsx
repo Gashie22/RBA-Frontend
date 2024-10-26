@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
       <Navbar />
       <div className="columns mt-12" style={{ minHeight: "100vh" }}>
         
-        <div className="column has-background-light">
+        <div className="column py-6 mt-6 has-background-light">
           <main className="mt-6 p-4">{children}</main>
         </div>
       </div>
