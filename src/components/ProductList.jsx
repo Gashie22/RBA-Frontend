@@ -33,6 +33,13 @@ const ProductList = () => {
       style_2: "card-content",
       style_3: "column is-half",
     },
+    {name: "BRANDING",
+      color: "card has-background-info",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
     {
       name: "SHARLEEN",
       color: "card has-background-danger",
@@ -42,7 +49,7 @@ const ProductList = () => {
       style_3: "column ",
     },
     {
-      name: "ARMSTRONG",
+      name: "NIGEL",
       color: "card has-background-warning",
       grid: "flexx",
       style_1: "column is-one-third",
@@ -58,7 +65,7 @@ const ProductList = () => {
     style_3: "column is-half",
   },
   {
-    name: "TAWONA",
+    name: "FLORENCE",
     color: "card has-background-link",
     grid: "flexx",
     style_1: "coumn is-one-third",

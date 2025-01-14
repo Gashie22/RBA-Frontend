@@ -5,7 +5,9 @@ import { LoginUser, reset } from "../features/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
+  const [emails, setEmails] = useState("");
   const [password, setPassword] = useState("");
+  const [passwords, setPasswords] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user, isError, isSuccess, isLoading, message } = useSelector(
@@ -29,7 +31,7 @@ const Login = () => {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-4">
+            <div className="column is-9">
               <form onSubmit={Auth} className="box">
                 { <p class="has-text-red">{isError}</p> && <figcaption>
                   <p class="has-text-centered has-text-blue">{message}</p>
@@ -71,8 +73,53 @@ const Login = () => {
             </div>
           </div>
         </div>
+
+        {/*NEW LOGIN TAB*/}
+        <div className="container">
+          <div className="columns is-entered">
+            <div className="column is-8">
+              <form className="box">
+                { <p class="has-text-red">{isError}</p> && <figcaption>
+                  <p class="has-text-centered has-text-blue">{message}</p>
+                  </figcaption>}
+                <h1 className="title is-2 has-text-centered">Elmala Branding</h1>
+                <div className="field">
+                  <label className="label">Email</label>
+                  <div className="control">
+                    <input
+                      type="text"
+                      className="input"
+                      
+                      placeholder="Emails"
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Password</label>
+                  <div className="control">
+                    <input
+                      type="password"
+                      className="input"
+                     
+                      placeholder="******"
+                    />
+                  </div>
+                </div>
+                <div className="fiel mt-5">
+                  <button
+                    type=""
+                    className="button is-success is-fullwidth"
+                  >
+                    {isLoading ? "Loading..." : "Login"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    
   );
 };
 
