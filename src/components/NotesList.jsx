@@ -24,12 +24,19 @@ function NotesList() {
   };
   const [search, setSearch] = useState("");
   const [block, setBlock] = useState("LAMECK");
-  const blockNames = [
+ const blockNames = [
     {
       name: "RUTENDO",
       color: "card has-background-success",
       grid: "flexx",
       style_1: "column is-one-third",
+      style_2: "card-content",
+      style_3: "column is-half",
+    },
+    {name: "BRANDING",
+      color: "card has-background-info",
+      grid: "flexx",
+      style_1: "coumn is-one-third",
       style_2: "card-content",
       style_3: "column is-half",
     },
@@ -42,31 +49,30 @@ function NotesList() {
       style_3: "column ",
     },
     {
-      name: "ARMSTRONG",
+      name: "NIGEL",
       color: "card has-background-warning",
       grid: "flexx",
       style_1: "column is-one-third",
       style_2: "card-content",
       style_3: "column is-half",
     },
-
-    {
-      name: "KUNDAI",
-      color: "card has-background-info",
-      grid: "flexx",
-      style_1: "coumn is-one-third",
-      style_2: "card-content",
-      style_3: "column is-half",
-    },
-    {
-      name: "TAWONA",
-      color: "card has-background-link",
-      grid: "flexx",
-      style_1: "coumn is-one-third",
-      style_2: "card-content",
-      style_3: "column is-half",
-    },
-  ];
+    
+    {name: "CHIEDZA",
+    color: "card has-background-info",
+    grid: "flexx",
+    style_1: "coumn is-one-third",
+    style_2: "card-content",
+    style_3: "column is-half",
+  },
+  {
+    name: "FLORENCE",
+    color: "card has-background-link",
+    grid: "flexx",
+    style_1: "coumn is-one-third",
+    style_2: "card-content",
+    style_3: "column is-half",
+  },
+  ]; 
 
   return (
     <div className="p-6 py-3">
