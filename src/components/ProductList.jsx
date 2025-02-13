@@ -24,7 +24,7 @@ const ProductList = () => {
 
   const [search, setSearch] = useState("");
   const [block, setBlock] = useState("LAMECK");
-  const blockNames = [
+   const blockNames = [
     {
       name: "RUTENDO",
       color: "card has-background-success",
@@ -57,7 +57,7 @@ const ProductList = () => {
       style_3: "column is-half",
     },
     
-    {name: "KUNDAI",
+    {name: "CHIEDZA",
     color: "card has-background-info",
     grid: "flexx",
     style_1: "coumn is-one-third",
